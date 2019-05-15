@@ -1,0 +1,20 @@
+{
+  "name": "pyrobocity",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"live-server --port=4500\" \"node-sass ./assets/scss/ -w -o ./assets/css/  \"",
+    "build": "node-sass ./assets/scss/ -o ./assets/css/ --output-style compressed ",
+    "start": "live-server --port=5000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "live-server": "^1.2.1",
+    "node-sass": "^4.12.0"
+  }
+}
