@@ -2,6 +2,7 @@
 
 $blogTextColor : #222222
 $blogMaxWidth : 1060px
+$blogContentSize : 81.2573443%
 
 .blog-container 
   .blog-start
@@ -13,7 +14,7 @@ $blogMaxWidth : 1060px
         font-size: 1.5em
         padding: 5px 1%
         @media screen and (min-width: $break-lg) 
-          width: 81.2573443%
+          width: $blogContentSize
           max-width: $blogMaxWidth
       .blog-image
         width: 100%
@@ -21,7 +22,7 @@ $blogMaxWidth : 1060px
         margin: 0 auto 30px auto
         position: relative
         @media screen and (min-width: $break-lg) 
-          width: 81.2573443%
+          width: $blogContentSize
           max-width: $blogMaxWidth
         .blog-src
           display: block
@@ -36,7 +37,7 @@ $blogMaxWidth : 1060px
         @media screen and (min-width: $break-sm) 
           justify-content: center
         @media screen and (min-width: $break-lg) 
-          width: 81.2573443%
+          width: $blogContentSize
           max-width: $blogMaxWidth
           justify-content: flex-start
         .author-side
