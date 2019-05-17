@@ -154,6 +154,8 @@ i
       z-index: 100
       width: 100%
       background-color: $navbarColor
+      +transform(translateY(0px))
+      +transition(all 200ms ease-in-out)
       +boxShadowWith($navBoxShadow, $navBoxShadow2)
       .upper
         height: $navbarHeight
@@ -394,7 +396,9 @@ i
               cursor: pointer
               &:hover
                 filt
-
+      &.hide
+        +transform(translateY(-110px))
+        +transition(all 250ms ease-in-out 150ms)
 
 
   
