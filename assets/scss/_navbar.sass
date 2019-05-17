@@ -6,23 +6,124 @@ $navbarHeight: (128/2)+px
 $navbarFontSize: 1.1em
 $navbarFontColor: $primary
 
-$navbarLeftMenu: 40%
-$navbarMiddleMemu: 20%
+$navbarLeftMenu: 100%
+$navbarMiddleMemu: 0%
 $navbarRightMenu: 40%
 
 $navBoxShadow: 0 2px 6px 0 rgba(0,0,0,.12)
-$navBoxShadow2: inset 0 -1px 0 0 #dadce0
+$navBoxShadow2: inset 0 0px 0 0 #dadce0
+
+// NavBar Link
+$navBarLinkDirection: left
 
 // Search Color , Icons
-$navbarSearchBoxColor: #fafafa
-$navbarSerachColor: #999999
+$navbarSearchBoxColor: #f7f7f7
+$navbarSerachColor: #222222
 $navbarBorder: solid 1px #dbdbdb
 $searchSVG: '/assets/svg/search.svg' 
 
 // Logo Size Color
 $navBarLogoSize: 40px
 
-use of keyframes mixin
+// NavBar Lower Search Height
+$navbarLowerHeight: 45px
+
+// NavBar Links Share
+%links
+  display: none
+  visibility: hidden
+  padding-right: 2%
+  @media screen and (min-width: $break-md)
+    display: inline-block
+    visibility: visible
+
+// Share a
+%share-a
+  margin: 0 3px
+  color: $navbarFontColor
+  text-decoration: none
+  position: relative
+  overflow: hidden
+  &:before 
+    content: ""
+    display: block
+    position: absolute
+    width: 100%
+    left: -1px
+    bottom: -8px
+    border-bottom: 2px solid #7abdf1
+    +transform(translateX(0%) scale(0))
+  &:hover:before
+    left: -50%
+    +transform(translateX(50%) scaleX(1))
+    +transition(transform .15s ease-in-out)
+  &:after 
+    content: ""
+    display: block
+    position: absolute
+    width: 100%
+    left: 100%
+    bottom: -8px
+    border-bottom: 2px solid #7abdf1
+    +transition(all .5s ease-in-out .25s)
+    +transform(translateX(-50%) scaleX(0))
+  &:hover:after
+    left: 0%
+    +transform(translateX(0%) scaleX(1))
+    +transition(all .0s ease-in-out .15s)
+
+// Drop Down Start
+i
+  &.drop-down
+    border: solid $primary
+    border-width: 0 3px 3px 0
+    display: inline-block
+    padding: 3px
+    position: relative
+    top: -2px
+    left: 1px
+    filter: brightness(0.8)
+    +transform(rotate(45deg))
+
+%drop-down
+  cursor: pointer
+  &:hover i.drop-down
+    filter: brightness(1)
+  div.dropdown-list
+    position: absolute
+    display: inline-block
+    visibility: hidden
+    opacity: 0
+    top: 16px
+    z-index: 100
+    left: 50%
+    // width: 100px
+    min-width: 100px
+    min-height: 100px
+    box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 2px 1px -1px rgba(0,0,0,0.12)
+    background: #ffffff
+    border-radius: 3px
+    overflow: hidden
+    +transform(translateX(-50%) scaleX(0.95))
+    +transition(all 0.2s ease-in-out)
+    &>a
+      color: #aaaaaa
+      padding: 0.6em
+      text-decoration: none
+      display: block
+      position: relative
+      +transition(all 0.1s ease-in-out)
+    &>a:hover
+      filter: brightness(0.8)
+      +transform(translateX(3px))
+  &:hover div.dropdown-list
+    top: 28px
+    visibility: visible
+    opacity: 1
+    +transform(translateX(-50%) scaleX(1))
+    +transition(all 0.2s ease-in-out)
+    
+//use of keyframes mixin
 +keyframes(pyrobocity)
   0%
     +transform(translateY(0px))
@@ -43,9 +144,8 @@ use of keyframes mixin
   70%
     +transform(scale(1))
 
-
 .custom-nav-bar
-    height: $navbarHeight
+    height: 128px
     // background-color: $navbarColor
     .upperlower-container
       position: fixed
@@ -63,14 +163,15 @@ use of keyframes mixin
         +flexDirection(row)
         +flexBox()
         .left
-          // background-color: red
+          background-color: $navbarColor
+          z-index: 99
           position: relative
           color: $navbarFontColor
           text-align: center
           +flexWidth(100%)
           @media screen and (min-width: $break-md)
             text-align: left
-            +flexWidth($navbarRightMenu)
+            +flexWidth($navbarLeftMenu)
           .header
             display: inline-block
             height: $navbarHeight
@@ -81,6 +182,7 @@ use of keyframes mixin
             text-decoration: none
             position: relative
             color: $primary
+            margin-right: 10px
             @media screen and (min-width: $break-md)
               padding-left: calc(2% + 50px)
             .svg-container
@@ -97,7 +199,7 @@ use of keyframes mixin
               position: relative
               span
                 display: inline-block
-          &:hover
+          & a.header:hover
             .svg-container
               animation: pyrobocityLogo 500ms ease-in-out 500ms forwards
             .site-name
@@ -130,12 +232,55 @@ use of keyframes mixin
             top: 17px
             left: 6px
             position: absolute
+            cursor: pointer
             @media screen and (min-width: $break-md)
               display: none
               visibility: hidden
             .cross
               opacity: 0
               visibility: hidden
+          .search-bar
+            display: inline-block
+            width: 32px
+            height: 32px
+            top: 17px
+            right: 10px
+            position: absolute
+            cursor: pointer
+            @media screen and (min-width: $break-md)
+              display: none
+              visibility: hidden
+          .links
+            @extend %links
+            .links-a
+              @extend %share-a
+              &.dropdown
+                @extend %drop-down
+          .right-links
+            @extend %links
+            position: absolute
+            right: 0 
+            padding-left: 40px
+            top: 23px
+            .search
+              width: 28px
+              height: 28px
+              display: inline-block
+              position: absolute
+              top: -5px
+              left: 0px
+            .links-a
+              @extend %share-a
+              &.dropdown
+                @extend %drop-down
+        .right
+          color: $navbarFontColor
+          text-align: $navBarLinkDirection
+          line-height: $navbarHeight
+          // background-color: green
+          +flexWidth(0%)
+          @media screen and (min-width: $break-md)
+            +flexWidth($navbarRightMenu)
         .middle
           line-height: $navbarHeight
           position: relative
@@ -169,54 +314,64 @@ use of keyframes mixin
               &::placeholder
                 color: $navbarSerachColor
                 text-align: center
-                font-weight: bold
-        .right
-          color: $navbarFontColor
-          text-align: right
-          line-height: $navbarHeight
-          // background-color: green
-          +flexWidth(0%)
-          @media screen and (min-width: $break-md)
-            +flexWidth($navbarRightMenu)
-          .links
-            display: none
-            padding-right: 2%
+                font-weight: bold        
+      .lower
+        height: $navbarLowerHeight        
+        border-top: 1px solid #efefef
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        background-color: #fff 
+        z-index: 98
+        opacity: 0
+        +transition(all 0.2s ease-in-out)
+        +boxShadowWith(0 3px 5px 0 rgba(0, 0, 0, 0.12), inset 0 0px 0 0 #dadce0)
+        &.active
+          +transform(translateY(64px))
+          +transition(all 0.2s ease-in-out)
+          opacity: 1
+        .container
+          max-width: $navbarMaxWidth
+          margin: 0 auto
+          width: 100%
+          height: $navbarLowerHeight
+          line-height: $navbarLowerHeight
+          .searchbox-container
+            width: 90%
+            height: $navbarLowerHeight
+            line-height: $navbarLowerHeight
+            margin: 0 auto
+            padding: 0 3%
+            position: relative
             @media screen and (min-width: $break-md)
+              width: 60%
+            .search-form
+              width: calc(100% - 55px)
+              border-radius: 2px
+              border: none 
+              height: 30px
+              background-color: $navbarSearchBoxColor
+              font-family: $default-font
+              caret-color: $navbarSerachColor
+              color: $navbarSerachColor
+              outline: transparent
+              padding-left: 6%
+              &::placeholder
+                color: $navbarSerachColor
+                text-align: center
+            .close-search
               display: inline-block
-            a
-              margin: 0 3px
-              color: $navbarFontColor
-              text-decoration: none
-              position: relative
-              overflow: hidden
-              &:before 
-                content: ""
-                display: block
-                position: absolute
-                width: 100%
-                left: -1px
-                bottom: -8px
-                border-bottom: 2px solid #7abdf1
-                +transform(translateX(0%) scale(0))
-              &:hover:before
-                left: -50%
-                +transform(translateX(50%) scaleX(1))
-                +transition(transform .15s ease-in-out)
-              &:after 
-                content: ""
-                display: block
-                position: absolute
-                width: 100%
-                left: 100%
-                bottom: -8px
-                border-bottom: 2px solid #7abdf1
-                +transition(all .5s ease-in-out .25s)
-                +transform(translateX(-50%) scaleX(0))
-              &:hover:after
-                left: 0%
-                +transform(translateX(0%) scaleX(1))
-                +transition(all .0s ease-in-out .15s)
-                
-                
-                  
+              width: 32px
+              height: 32px
+              top: 7px
+              right: 0
+              position: absolute
+              cursor: pointer
+              &:hover
+                filt
+
+
+
+  
 
