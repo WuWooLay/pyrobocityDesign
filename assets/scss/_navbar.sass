@@ -259,20 +259,44 @@ i
           .right-links
             @extend %links
             position: absolute
-            right: 0 
+            right: 0
             padding-left: 40px
-            top: 23px
+            padding-right: 40px
+            top: 50%
+            +transform(translateY(-50%))
             .search
               width: 28px
               height: 28px
               display: inline-block
               position: absolute
-              top: -5px
+              top: 0px
               left: 0px
             .links-a
               @extend %share-a
+              top: -4px
               &.dropdown
                 @extend %drop-down
+            .profile
+              @extend %share-a
+              &:before
+                display: none
+              &:after
+                display: none
+              .img-container
+                width: 20px
+                height: 20px
+                img
+                  cursor: pointer
+                  width: 24px
+                  object-fit: cover
+                  position: relative
+                  top: 4px
+                  border-radius: 24px
+              &.dropdown
+                @extend %drop-down
+                div.dropdown-list
+                    min-width: 150px
+                    left: calc(50% - 26px)
         .right
           color: $navbarFontColor
           text-align: $navBarLinkDirection
