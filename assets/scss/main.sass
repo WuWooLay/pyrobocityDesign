@@ -20,6 +20,14 @@ $mm-font: 'MMS2'
 // Color Set 
 $primary: #0984e3
 $secondary: #ff7675
+$default: #464646
+
+.custom-text-primary
+  color: $primary !important
+.custom-text-secondary
+  color: $secondary !important
+.custom-text-default
+  color: $default !important
 
   
 $break-xs: 320px
@@ -94,6 +102,13 @@ body
   padding: 0px
   margin: 0px
   font-family: $default-font
+body::-webkit-scrollbar-track
+  background-color: #F5F5F5
+body::-webkit-scrollbar 
+  width: 6px
+  background-color: #F5F5F5
+body::-webkit-scrollbar-thumb
+  background-color: #222222
 
 .profile-pic 
   width: 100%
@@ -106,3 +121,6 @@ body
 @import youtube-frame
 @import badage
 @import navbar
+@import drawer
+
+  

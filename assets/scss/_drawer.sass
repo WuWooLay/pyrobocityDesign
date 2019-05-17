@@ -1,0 +1,133 @@
+.custom-overlay
+  background-color: rgba(170, 170, 170, 0.43)
+  width: 100% 
+  height: calc(100vh + 200px)
+  position: fixed
+  top: 0 
+  left: 0
+  z-index: 100
+  display: none
+  &.active
+    display: block
+  
+.custom-drawer::-webkit-scrollbar-track
+  background-color: #F5F5F5
+.custom-drawer::-webkit-scrollbar 
+  width: 3px
+  background-color: #F5F5F5
+.custom-drawer::-webkit-scrollbar-thumb
+  background-color: #ababab
+
++keyframes(drawerDropDown)
+  0%
+    visibility: hidden
+    opacity: 0 
+    +transform(translateY(0%) scaleY(0))
+  50%
+    visibility: visible
+    opacity: 1 
+    +transform(translateY(0%) scaleY(1))
+
+.custom-drawer
+  height: 100%
+  background-color: #ffffff
+  width: 280px
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 101
+  overflow-y: auto
+  scrollbar-width: thin
+  +transform(translateX(-280px))
+  +transition(all 200ms ease-in-out)
+  &.active
+    +transform(translateX(0))
+    +transition(all 200ms ease-in-out)
+  .image-container
+    background-color: $primary
+    height: 180px
+  .links-container
+    min-height: calc(100vh - 180px)
+    .divider
+     width: 100%
+     height: .8em
+     border-bottom: 1px solid #efefef
+     margin-bottom: .8em
+    .link.icon
+      padding: 1em
+      padding-left: calc(1em + 40px)
+      display: block
+      text-decoration: none
+      color: $default
+      position: relative
+      i
+        position: absolute
+        top: 16px
+        left: 13px
+      &:hover
+        filter: brightness(0)
+        margin-left: 3px
+        +transition(all 200ms ease-in-out)
+    .link
+      padding: 1em
+      padding-left: calc(1em + 40px)
+      display: block
+      text-decoration: none
+      color: $default
+      &:hover
+        filter: brightness(0)
+        margin-left: 3px
+        +transition(all 200ms ease-in-out)
+    .drawer-dropdown
+      position: relative
+      color: $default
+      .underLink
+        display: none
+        a
+          padding: 1em
+          padding-left: calc(1em + 60px)
+          display: block
+          text-decoration: none
+          color: $default
+      &.active
+        .underLink
+          display: block
+          animation: drawerDropDown 200ms ease-in-out 0s forwards
+      .text.icon
+        padding: 1em
+        padding-left: calc(1em + 40px)
+        display: block
+        text-decoration: none
+        cursor: pointer
+        position: relative
+        i
+          position: absolute
+          top: 16px
+          left: 13px
+      .text
+        padding: 1em
+        padding-left: calc(1em + 40px)
+        display: block
+        text-decoration: none
+        cursor: pointer
+        position: relative
+        i
+          position: absolute
+          top: 16px
+          left: 13px
+      &:after
+        cursor: pointer
+        color: inherit
+        content: "\f078"
+        font-family: "Font Awesome 5 Free"
+        font-weight: 900
+        position: absolute
+        top: 18px
+        right: 13px
+      &.active:after
+        content: "\f077"
+
+     
+
+
+  
