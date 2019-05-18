@@ -991,6 +991,45 @@ i.drop-down {
   .custom-drawer .image-container {
     border-bottom: 1px solid #efefef;
     height: 180px; }
+    .custom-drawer .image-container .overlay-image {
+      width: 100%;
+      height: 180px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 99; }
+      .custom-drawer .image-container .overlay-image img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover; }
+    .custom-drawer .image-container .profile-container {
+      width: 100%;
+      height: 180px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 100; }
+      .custom-drawer .image-container .profile-container .profile-image {
+        width: 58px;
+        height: 58px;
+        border-radius: 58px;
+        overflow: hidden;
+        position: absolute;
+        background-color: red;
+        top: 45px;
+        left: 18px; }
+        .custom-drawer .image-container .profile-container .profile-image img {
+          width: 100%;
+          height: auto;
+          object-fit: cover; }
+      .custom-drawer .image-container .profile-container .profile-text {
+        width: 100%;
+        position: absolute;
+        bottom: 0; }
+        .custom-drawer .image-container .profile-container .profile-text .text-name {
+          padding: 1em 0 1.8em 1.2em;
+          font-size: 1.1em;
+          font-weight: bold; }
   .custom-drawer .links-container {
     min-height: calc(100vh - 180px); }
     .custom-drawer .links-container .divider {
@@ -1010,7 +1049,8 @@ i.drop-down {
         top: 16px;
         left: 13px; }
       .custom-drawer .links-container .link.icon:hover {
-        filter: brightness(0);
+        color: inherit;
+        filter: brightness(0.8);
         margin-left: 3px;
         -webkit-transition: all 200ms ease-in-out;
         -ms-transition: all 200ms ease-in-out;
@@ -1023,7 +1063,8 @@ i.drop-down {
       text-decoration: none;
       color: #464646; }
       .custom-drawer .links-container .link:hover {
-        filter: brightness(0);
+        color: inherit;
+        filter: brightness(0.8);
         margin-left: 3px;
         -webkit-transition: all 200ms ease-in-out;
         -ms-transition: all 200ms ease-in-out;
