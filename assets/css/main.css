@@ -989,7 +989,7 @@ i.drop-down {
     -moz-transition: all 200ms ease-in-out;
     transition: all 200ms ease-in-out; }
   .custom-drawer .image-container {
-    background-color: #0984e3;
+    border-bottom: 1px solid #efefef;
     height: 180px; }
   .custom-drawer .links-container {
     min-height: calc(100vh - 180px); }
