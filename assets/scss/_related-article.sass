@@ -1,0 +1,98 @@
+// Related Article
+$ArticleMaxWidth : 1060px
+
+.related-article-container
+    min-height: 50vh
+    background-color: #fafafa
+    position: relative
+    width: 100%
+    .related-article-title
+        width: 100%
+        max-width: $ArticleMaxWidth
+        margin: 0 auto
+        +flexBox()
+        +flexDirection(row)
+        @media screen and (min-width: $break-lg)
+            width: 81.25734%
+        h3
+            text-align: center
+            flex: 1
+            padding: 0 0 0 4%
+            @media screen and (min-width: $break-md)
+                padding: 0 0 0 2%
+            @media screen and (min-width: $break-lg)
+                padding: 0 0 0 1%
+
+    .related-article-content
+        width: 100%
+        max-width: $ArticleMaxWidth
+        margin: 0 auto
+        justify-content: center
+        +flexBox()
+        +flexDirection(row)
+        @media screen and (min-width: $break-md)
+            justify-content: space-between
+        @media screen and (min-width: $break-lg)
+            width: 81.25734%
+            justify-content: space-around
+        .article-card
+            background-color: #ffffff
+            margin-bottom: 14px
+            border-radius: 4px
+            box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12)
+            +flexWidth(92%)
+            @media screen and (min-width: $break-md)
+                +flexWidth(46%)
+            @media screen and (min-width: $break-md) and (max-width: 991px)
+                margin: 12px 15px
+            @media screen and (min-width: $break-lg)
+                +flexWidth(30%)
+            a
+                text-decoration: none
+            .article-image
+                height: 120px
+                overflow: hidden
+                border-bottom: 1px solid rgba(0,0,0,.0785)
+                // background-color: $primary
+                img
+                    width: 100%
+                    height: inherit
+                    object-fit: cover
+                    object-position: 50% 8%
+            .article-text
+                padding: 15px 10px 10px 10px
+                .title
+                    color: #333333
+                    margin: 0 
+                    font-size: 18px
+                    font-weight: 600
+                    overflow: hidden
+                    min-height: 42px
+                    max-height: 48px
+                    text-overflow: ellipsis
+                    display: -webkit-box
+                    -webkit-line-clamp: 2
+                    -webkit-box-orient: vertical
+            .profile-and-image
+                position: relative
+                // background-color: $secondary
+                height: 50px
+                .profile
+                    width: 36px 
+                    height: 36px
+                    border-radius: 36px
+                    position: absolute
+                    left: 13px
+                    top: 6px
+                    overflow: hidden
+                    img
+                        width: 36px
+                        height: 36px
+                        object-fit: cover
+                .text
+                    padding-left: 56px
+                    padding-top: 5px
+                    a
+                        color: $primary
+                    a:hover
+                        text-decoration: underline
