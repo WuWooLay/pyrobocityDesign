@@ -1241,3 +1241,38 @@ i.drop-down {
             color: #0984e3; }
           .related-article-container .related-article-content .article-card .profile-and-image .text a:hover {
             text-decoration: underline; }
+
+.relative-article-show-container {
+  height: 1.4em;
+  width: 100%; }
+  @media screen and (min-width: 768px) {
+    .relative-article-show-container {
+      height: 1.95em; } }
+  .relative-article-show-container.fixed .show-articles-container {
+    position: fixed; }
+  .relative-article-show-container .show-articles-container {
+    width: 100%;
+    height: 1px;
+    bottom: 1.3em; }
+    @media screen and (min-width: 768px) {
+      .relative-article-show-container .show-articles-container {
+        bottom: 1.9em; } }
+    .relative-article-show-container .show-articles-container .width-pecent {
+      max-width: 1020px;
+      margin: 0 auto;
+      text-align: right;
+      padding-right: 1.5%; }
+      @media screen and (min-width: 992px) {
+        .relative-article-show-container .show-articles-container .width-pecent {
+          width: 86.25734%; } }
+    .relative-article-show-container .show-articles-container .show-articles {
+      font-size: .8em;
+      display: inline-block;
+      background-color: #efefef;
+      display: inline-block;
+      padding: .3em;
+      cursor: pointer; }
+      @media screen and (min-width: 768px) {
+        .relative-article-show-container .show-articles-container .show-articles {
+          font-size: .9em;
+          padding: .5em; } }
