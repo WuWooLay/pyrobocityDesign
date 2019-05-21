@@ -1,0 +1,82 @@
+
+footer
+    background-color: #efefef
+    min-height: 50vh
+    padding: 0 4%
+    @media screen and (min-width: $break-md)
+        padding: 0
+    .custom-footer-container
+        padding:  4% 0 0 0
+        width: 100%
+        max-width: 1060px
+        // background-color: $primary
+        @media screen and (min-width: $break-md)
+            width: 84%
+            margin: 0 auto
+        .follow
+            // background-color: $primary
+            border-bottom: 1px solid #dcdcdc
+            .title
+                margin-right: 15px
+                font-size: 0.9em
+                display: inline-block
+                margin-bottom: 15px
+            ul
+                display: inline-block
+                list-style: none
+                margin: 0 
+                padding: 0 
+                margin-bottom: 15px
+                li
+                    font-size: 1.5em
+                    display: inline-block
+                    margin-right: 15px
+                    a
+                        color: #5f6368
+                        +transition(color 0.2s ease-in-out)
+    .other-links
+        justify-content: space-between
+        +flexBox()
+        .each-links
+            @extend %share-other-links
+
+%share-other-links
+    // min-height: 150px
+    // background-color: #ddd
+    +flexWidth(100%)
+    @media screen and (min-width: $break-md)
+        +flexWidth(25%)
+    h3
+        margin-top: 1.4em
+    ul
+        list-style: none
+        margin: 0 
+        padding: 0 
+        margin-bottom: 15px
+        li
+            font-size: 1.1em
+            margin-bottom: 8px
+            a
+                text-decoration: none
+                color: #5f6368
+                +transition(all 0.2s ease-in-out)
+                &:hover
+                    filter: grayscale(0)
+                    margin-left: 3px
+    img.logo
+        width: 30px
+        height: 30px
+        filter: grayscale(1)
+
+.social-linked-hover-google:hover
+    color: #db3236 !important
+.social-linked-hover-youtube:hover
+    color: #db3236 !important
+.social-linked-hover-facebook:hover
+    color: #3b5998 !important
+.social-linked-hover-twitter:hover
+    color: #00acee !important
+.social-linked-hover-github:hover
+    color: #24292e !important
+.social-linked-hover-linkedin:hover
+    color: #0077B5 !important
